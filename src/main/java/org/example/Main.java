@@ -3,6 +3,7 @@ package org.example;
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static Object main(String[] args) {
@@ -227,6 +228,8 @@ public class Main {
         //noneMatch - בודקת אם אף אחד מהאיברים אינו מתאים לתנאי מסויים
         //findFirst - מביאה את האיבר הראשון בסטרים
         //findAny - מביאה איבר כלשהו בסטרים
+
+        IntStream.range(0,100) //מעבר על כל המספרים מ0 ל-100
 
         //קיבוץ
         public Map<String,List<Object>> byExample (List<Object> list){
