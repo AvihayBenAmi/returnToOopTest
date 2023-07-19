@@ -187,7 +187,7 @@ public class Main {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        //במקרה זה נאתר את קטע הקוד הקריטי ונגדיר syncronize
+        //במקרה זה נאתר את קטע הקוד הקריטי ונגדיר synchronize
         public synchronized void method (){
             this.criticalParameter +=sum;
         }
@@ -252,6 +252,47 @@ public class Main {
         public class nameClass <T>{ //מחלקה גנרית, כל טיפוס שניצור מסוג מסויים ממחלקה זו יחליף את T לסוג הרצוי
             //states and methods
         }
+
+        //enum
+        public enum Day{ //הגדרת enum מאפשר ערכים מוגדרים מראש
+            SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY;
+        }
+
+        Day day1=Day.MONDAY; //יישום
+        day1.name();// מתודה המחזירה את השם
+        day1.ordinal();//מחזירה את המיקום בenum
+        //שימושי במיוחד בswitch-case
+
+        //sorting and binarySearch
+        Collections.sort(list);// מתודת המיון
+
+        public class Book implements Comparable<Book>{ //מימוש ממשק ההשוואה במחלקה מסויימת
+            //states and methods
+            public int compareTo(Book otherBook){ //המתודה ההכרחית שמגדירה כיצד למיין (לדוג' עפ"י כותרת)
+                return this.title.compareTo(otherBook.title);
+            }
+        }
+
+        int index=Collections.binarySearch(SortedList,element); // חיפוש בינארי - המתודה תחזיר את האינדקס של האלמנט ברשימה ממויינת ובמידה ולא תחזיר מספר שלילי
+        //חייב לשלוח לה משתנה שהמחלקה שלו ממשת comparble שכן החיפוש מסתמך על רשימה ממויינת
+
+        //jvm - java virtual machine
+        //כלי המאפשר בניית bytecode והרצת קומפילצייה על כל מחשב ולאו דווקא זה שכתב את הקוד
+        //ייתרון נוסף הוא ניהול הזכרון בתוכנית - Garbage collector
+        //הפעולה של הgc קורית בשורש התוכנית ולכן כאשר הוא רץ, התוכנית קופאת לכן לא ירוץ כל הזמן שכן הוא משתמש במשאבי עיבוד גבוהים. הפעלתו על ידי הjvm ומתחשב בשיקולים כמו מה העומס העכשווי על המערכת ומהי כמות הזכרון הפנוי כרגע
+        //שימוש בnull משמעותו אובייקט שכרגע לא מצביע לשום מקום בזכרון או נהפוך את האובייקט לכזה כדי שהgc ינקה אותו
+        //דליפת זכרון מתרחשת כאשר אובייקט לא נמצא יותר בשימוש אך הgc לא יכול לנקות אותו משום שעדיין יש אליו הפנייה
+
+
+
+
+
+
+
+
+
+
+
 
 
 
