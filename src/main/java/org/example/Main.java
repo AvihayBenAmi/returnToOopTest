@@ -2,8 +2,8 @@ package org.example;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.function.*;
+import java.util.stream.*;
 
 public class Main {
     public static Object main(String[] args) {
@@ -282,21 +282,6 @@ public class Main {
         //הפעולה של הgc קורית בשורש התוכנית ולכן כאשר הוא רץ, התוכנית קופאת לכן לא ירוץ כל הזמן שכן הוא משתמש במשאבי עיבוד גבוהים. הפעלתו על ידי הjvm ומתחשב בשיקולים כמו מה העומס העכשווי על המערכת ומהי כמות הזכרון הפנוי כרגע
         //שימוש בnull משמעותו אובייקט שכרגע לא מצביע לשום מקום בזכרון או נהפוך את האובייקט לכזה כדי שהgc ינקה אותו
         //דליפת זכרון מתרחשת כאשר אובייקט לא נמצא יותר בשימוש אך הgc לא יכול לנקות אותו משום שעדיין יש אליו הפנייה
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
