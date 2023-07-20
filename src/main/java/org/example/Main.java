@@ -61,7 +61,7 @@ public class Main {
         // קובץ bin קובץ בינארי מאובטח וניתן לתחזוקה רק באמצעות קוד
 
         //יצירת קובץ
-        File file = new File(path)//הצהרה על משתנה מסוג קובץ המקבל את הנתיב
+        File file = new File(path\nameFileYouWant.end)//הצהרה על משתנה מסוג קובץ המקבל את הנתיב
         try {
             boolean success = file.createNewFile();//יוצר את הקובץ ומחזיר תשובה אם נוצר בהצלחה או לא או חריגה
         } catch (IOException e) {
@@ -78,8 +78,6 @@ public class Main {
                     bufferedWriter.write(data);
                     bufferedWriter.close();
                     fileWriter.close(); //סוגר את הקובץ
-
-
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -102,7 +100,7 @@ public class Main {
             }
         }
         //קריאה מקובץ טקסט
-        public static List<String> reafFromFile (File file) throws Exception {
+        public static List<String> readFromFile (File file) throws Exception {
             List<String> lines = new ArrayList<>();
             try {
                 FileReader fileReader = new FileReader(file);
@@ -192,10 +190,12 @@ public class Main {
             this.criticalParameter +=sum;
         }
 
+
+
         //בעיית יצרן צרכן - כאשר שני תהליכונים תלויים אחד בעבודתו של השני
         //נשתמש במתודות thrad.wait וthread.notify
         //wait - גורמת לתהליכון הנוכחי להמתין ולא להתקדם לשורות הקוד הבאות עד להתראה
-        //notify - ההתראה שמשחררת את וויט ומזומנת ע"י תהליכון אחר
+        //notify/notifyall - ההתראה שמשחררת את וויט ומזומנת ע"י תהליכון אחר
 
         //בעיית הפילוסופים הסועדים
         //ייתכן וייגרם קיפאון deadlock - אם כל התהליכונים מחזיקים באותו רגע במשאב מסויים הנדרש לפעולה של תהליכון אחר
@@ -203,7 +203,11 @@ public class Main {
 
         //תכנות דקלרטיבי
         public List<String> list (List<String> list1){
-            return list1.Stream().filter(Client::isMember).map(Client::getName).sorted().collect(Collectors.toList());
+            return list1.Stream().
+                    filter(Client::isMember).
+                    map(Client::getName).
+                    sorted().
+                    collect(Collectors.toList());
         }
 
         //מתודות ביניים
@@ -283,7 +287,8 @@ public class Main {
         //שימוש בnull משמעותו אובייקט שכרגע לא מצביע לשום מקום בזכרון או נהפוך את האובייקט לכזה כדי שהgc ינקה אותו
         //דליפת זכרון מתרחשת כאשר אובייקט לא נמצא יותר בשימוש אך הgc לא יכול לנקות אותו משום שעדיין יש אליו הפנייה
 
-
-
+        //להפוך משתנים לNull אחרי שימוש
+        //במידה ויש מחיקה צריך לוודא שבמחלקה של האובייקט הנחלק יש פונקצייה equals
+        //צריך לוודא שכל ההפניות למשתנה מסויים מוסרות מכל המקומות
     }
 }
