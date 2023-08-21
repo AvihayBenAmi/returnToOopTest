@@ -44,6 +44,7 @@ public class Main {
 
         for (String name : names) {
         }//לולאת for-each עוברת על הset לפי הסדר שנקבע עבורו ולא פועלת על פי אינדקס ולא ניתן להסיר באמצעותה איברים
+//במידה ומדובר במשתנים פרימיטביים או במחלקות העוטפות משתנים פרימיטיבייים הערכים מועברים עפ"י ערך ולא כתובת ולכן הערכים המקוריים לא ישתנו!!!
 
         Iterator<String> iterator = names.iterator(); //שימוש באיטרטור מאפשר לנו לקבל את האיבר הבא באוסף
         while (iterator.hasNext()) { //בודקת האם יש לאיבר הנוכחי איבר הבא
@@ -176,7 +177,7 @@ public class Main {
         //מימוש
         Example2 example2=new Example2();
         Thread thread=new Thread(example2); //בשימוש ממחלקה שיורשת runnambe אנחנו נצטרך ליצור משתנה מסוג thread
-        example2.start();
+        thread.start();
 
         //race condition - מרוץ תהליכונים
         // קורה כאשר שני תהליכונים שרצים במקביל משנים יחדיו משאב משותף מקרה כזה יוביל לשוני בפלט מהרצה להרצה
@@ -209,6 +210,8 @@ public class Main {
                     sorted().
                     collect(Collectors.toList());
         }
+
+
 
         //מתודות ביניים
         //filter - סינון על סמך פונקצייה המועברת
