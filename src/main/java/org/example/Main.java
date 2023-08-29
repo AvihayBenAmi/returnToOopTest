@@ -19,8 +19,10 @@ public class Main {
         //אוספים ואיטרטורים
         ArrayList<Integer> numbers = new ArrayList<>(); //רשימה בצורת מערך עבור יותר חיפושים במקום שינויים
         List<Integer> numbers2 = new ArrayList<>(); // עבור שינויים רשימה בצורת מערך
-        List<Integer> numbers5 = Arrays.asList(1, 2, 3); // יצירת רשימה עם אתחול פרמטרים בעת יצירתה
+        List<Integer> numbers5 = Arrays.asList(1, 2, 3); //ללא הוספת ,יצירת רשימה עם אתחול פרמטרים בעת יצירתה
+        List<Integer> numbers6 = new ArrayList<>(Arrays.asList(1, 2, 3);) //ללא הוספת ,יצירת רשימה עם אתחול פרמטרים בעת יצירתה
         LinkedList<Integer> numbers3 = new LinkedList<>(); //רשימה מקושרת
+        Set<Integer> numbers7 = new HashSet<>(); //hashSet - ללא כפילויות וללא חשיבות לסדר - אוסף מצורת קבוצה
         HashSet<Integer> numbers4 = new HashSet<>(); //hashSet - ללא כפילויות וללא חשיבות לסדר - אוסף מצורת קבוצה
         numbers.add(value);// מוסיף את הספרה לפי ערך למיקום הראשון שפנוי
         numbers.add(location, value);// מוסיף את הספרה לפי מיקום וערך
@@ -30,6 +32,7 @@ public class Main {
         numbers.size();//מחזיר גודל רשימה
         numbers.contains(value);//בודק האם רשימה מכילה איבר מסויים
         numbers.clear();// מחיקת כל האיברים מהקבוצה
+        numbers.isEmpty();
 
         Map<Integer, String> map = new HashMap<>(); //מפה יודעת למפות בין מפתח key חח"ע לבין ערך value
         TreeMap<Integer, String> treeMap = new TreeMap<>(); //מפה ממויינת על פי המפתחות שלה
@@ -53,7 +56,7 @@ public class Main {
                 iterator.remove();
             }
         }
-        ListIterator<String> listIterator = name.listIterator();
+        ListIterator<String> listIterator = name.listIterator(); //מיועד כדי לשנות ערכים באוסף
         iterator.next() //מתקדם צעד אחד באוסף
         Iterator.previous // הולך צעד אחורה באוסף
 
@@ -191,8 +194,6 @@ public class Main {
             this.criticalParameter +=sum;
         }
 
-
-
         //בעיית יצרן צרכן - כאשר שני תהליכונים תלויים אחד בעבודתו של השני
         //נשתמש במתודות thrad.wait וthread.notify
         //wait - גורמת לתהליכון הנוכחי להמתין ולא להתקדם לשורות הקוד הבאות עד להתראה
@@ -236,7 +237,9 @@ public class Main {
         //findFirst - מביאה את האיבר הראשון בסטרים
         //findAny - מביאה איבר כלשהו בסטרים
 
-        IntStream.range(0,100) //מעבר על כל המספרים מ0 ל-100
+        IntStream.range(0,100) //מעבר על כל המספרים מ0 ל-99
+        IntStream.rangeClosed(0,100) //מעבר על כל המספרים מ0 ל-100
+
 
         //קיבוץ
         public Map<String,List<Object>> byExample (List<Object> list){
@@ -256,13 +259,15 @@ public class Main {
             return something
         } //הזימון של מתודה זו הוא כרגיל ואין צורך בcasting
 
-        public class nameClass <T>{ //מחלקה גנרית, כל טיפוס שניצור מסוג מסויים ממחלקה זו יחליף את T לסוג הרצוי
+        public class NameClass <T>{ //מחלקה גנרית, כל טיפוס שניצור מסוג מסויים ממחלקה זו יחליף את T לסוג הרצוי
             //states and methods
         }
 
+        NameClass<String> nameClass=new NameClass<>();
+
         //enum
         public enum Day{ //הגדרת enum מאפשר ערכים מוגדרים מראש
-            SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY;
+            SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY
         }
 
         Day day1=Day.MONDAY; //יישום
@@ -278,6 +283,9 @@ public class Main {
             public int compareTo(Book otherBook){ //המתודה ההכרחית שמגדירה כיצד למיין (לדוג' עפ"י כותרת)
                 return this.title.compareTo(otherBook.title);
             }
+            //0 qeual, pos - this is bigger, neg - this is smaller
+            //אם משווים מספרים להשתמש Integer.compareTo(this,other)
+
         }
 
         int index=Collections.binarySearch(SortedList,element); // חיפוש בינארי - המתודה תחזיר את האינדקס של האלמנט ברשימה ממויינת ובמידה ולא תחזיר מספר שלילי
@@ -291,7 +299,7 @@ public class Main {
         //דליפת זכרון מתרחשת כאשר אובייקט לא נמצא יותר בשימוש אך הgc לא יכול לנקות אותו משום שעדיין יש אליו הפנייה
 
         //להפוך משתנים לNull אחרי שימוש
-        //במידה ויש מחיקה צריך לוודא שבמחלקה של האובייקט הנחלק יש פונקצייה equals
+        //במידה ויש מחיקה צריך לוודא שבמחלקה של האובייקט הנמחק יש פונקצייה equals
         //צריך לוודא שכל ההפניות למשתנה מסויים מוסרות מכל המקומות
     }
 }
